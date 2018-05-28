@@ -18,8 +18,9 @@ public:
 };
 void CFeet::setvalue(int fe, int in)
 {
-	feet = fe + in / 12;
-	inches = in % 12;
+	inches = fe * 12+in;
+	feet = inches / 12;
+	inches = inches - 12.0*(int)(inches / 12);
 }
 void CFeet::display()
 {
@@ -40,7 +41,7 @@ CFeet CFeet ::operator -(CFeet & objk)
 int main()
 {
 	CFeet A, B, C;
-	A.setvalue(23, 24);
+	A.setvalue(10, 0);
 	B.setvalue(3, 2);
 	C = A - B;
 	C.display();
